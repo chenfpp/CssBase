@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>学习居中</title>
+<style>
+.father
+{
+	height: 200px;
+	width: 200px;
+	border: 1px solid #000;
+	text-align: center; 
+	/* 水平居中,只对图片、文字、按钮等行内元素(display:inline/inline-block)居中 */
+}
+.childa
+{
+	background-color:#d0e4fe;
+	height: 50px;
+	width: 50px;
+	margin: auto;  /*margin: 0 auto;*/ 
+	/* 水平居中,且对浮动元素(float:right/left)和绝对定位(position:absolute)元素无效 */
+}
+.childb
+{
+	font-family: "Times New Roman";
+	font-size: 20px;
+	height: 50px;
+	line-height: 50px;
+	/* 单行文字的垂直居中,只适用于一行文字的情况，line-height === height */
+}
+#wrapper {
+    display: table;
+    
+}
+#cell {
+	height: 200px;
+	width: 200px;
+	border: 1px solid #000;
+    display: table-cell;
+    vertical-align: middle;
+    /* 垂直居中,父设置为table元素,自己为table-cell元素,vertical-align:middle;子垂直居中 */
+}
+.tablediv{
+	width: 100px;
+	height: 100px;
+	background: #d0e4fe;
+	/* 水平垂直居中,(th tr td设置)align:center; */
+	/* 垂直居中,(th tr td设置)valign:center; */
+}
+.box{
+	height: 200px;
+	width: 200px;
+	position: relative;
+	border: 1px solid #000;
+}
+.content-box{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	background-color: #d0e4fe;
+	top: 50%;
+	left: 50%;
+	margin-top: -25px;
+	margin-left: -25px;
+	/* 水平垂直居中,父设置为position:relative;子设置为position:absolute;top:50%;left:50%;margin-top:-自身高度的一半;margin-left:-自身宽度的一半; */
+}
+.content-box2{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	background-color: #d0e4fe;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	/* 水平垂直居中,父设置为position:relative;子设置为position:absolute;top:0;left:0;right:0;bottom:0;margin:auto; */
+}
+.content-box3{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	background-color: #d0e4fe;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	/* 水平垂直居中,父设置为position:relative;子设置为position:absolute;top:50%;left:50%;transform:translate(-50%,-50%); */
+}
+.flex{
+	height: 200px;
+	width: 200px;
+	display: flex;
+	border: 1px solid #000;
+	justify-content: center;
+	/* 水平居中,父设置为display:flex;justify-content:center; */
+	align-items: center;
+	/* 垂直居中,父设置为display:flex;align-items:center; */
+}
+</style>
+</head>
+<body>
+	<div class='father'>
+		<div class='childa'></div>
+		<div class='childb'>343434</div>
+	</div>
+    <div id="cell">
+        <div class="content">Content goes here</div>
+    </div>
+	<table border='1'>
+		<tr valign="center">
+			<td height='200' 
+				width='200' 
+			>
+				<div class='tablediv'></div>
+				<span>67677</span>
+			</td>
+		</tr>
+	</table>
+	<div class="box">
+        <div class="content-box"></div>
+    </div>
+    <div class="box">
+        <div class="content-box2"></div>
+    </div>
+    <div class="box">
+        <div class="content-box3"></div>
+    </div>
+    <div class="flex">
+        <div class="tablediv"></div>
+    </div>
+</body>
+</html>
